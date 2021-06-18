@@ -1,5 +1,7 @@
 const path = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+const loader = require("sass-loader");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   //Entrada
@@ -36,6 +38,18 @@ module.exports = {
           },
         ],
       },
+
+      //Regla trabajar con SASS(SCSS) CSS
+      {
+        test: /\.(s*)css$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+          },
+          "css-loader",
+          "sass-loader",
+        ],
+      },
     ],
   },
 
@@ -44,6 +58,10 @@ module.exports = {
     new HtmlWebPackPlugin({
       template: "./public/index.html",
       filename: "./index.html",
+    }),
+
+    new MiniCssExtractPlugin({
+      filename: "assets/[name].css",
     }),
   ],
 };
