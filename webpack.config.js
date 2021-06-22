@@ -50,6 +50,19 @@ module.exports = {
           "sass-loader",
         ],
       },
+
+      //Regla para trabajar con extensiones de imagenes
+      {
+        test: /\.(png|gif|jpg)$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "assets/[hash].[ext]",
+            },
+          },
+        ],
+      },
     ],
   },
 
