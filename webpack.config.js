@@ -66,6 +66,11 @@ module.exports = {
     ],
   },
 
+  // Esta parte para trabajar con Rutas
+  devServer: {
+    historyApiFallback: true,
+  },
+
   //Aqui estan los Plugins
   plugins: [
     new HtmlWebPackPlugin({
