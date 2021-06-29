@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { loginRequest } from "../actions";
 import "../assets/styles/components/Login.scss";
 import googleIcon from "../assets/static/google-icon.png";
 import twitterIcon from "../assets/static/twitter-icon.png";
 
-const Login = () => {
+const Login = (props) => {
   const [form, setValues] = useState({
     email: "",
   });
@@ -18,7 +20,9 @@ const Login = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(form);
+    props.loginRequest(form);
+    //console.log(form);
+    props.history.push("/");
   };
 
   return (
@@ -41,7 +45,7 @@ const Login = () => {
               placeholder="Contraseña"
               onChange={handleInput}
             />
-            <button className="button" >Iniciar sesión</button>
+            <button className="button">Iniciar sesión</button>
             <div className="login__container--remember-me">
               <label>
                 <input type="checkbox" id="cbox1" value="first_checkbox" />
@@ -68,4 +72,9 @@ const Login = () => {
   );
 };
 
-export default Login;
+const mapDispatchToProps = {
+  loginRequest,
+};
+
+//export default Login;
+export default connect(null, mapDispatchToProps)(Login);
