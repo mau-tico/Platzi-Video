@@ -57,7 +57,7 @@ typings/
 .yarn-integrity
 
 # dotenv environment variables file
-.env
+#.env
 
 # IDE
 .idea/*
@@ -65,8 +65,8 @@ typings/
 *.sublime-*
 
 # OSX
-.DS_Store
-.vscode
+#.DS_Store
+#.vscode
 
 # Docs Custom
 .cache/
