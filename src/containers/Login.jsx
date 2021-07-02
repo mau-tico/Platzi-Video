@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { loginRequest } from "../actions";
+import Header from "../components/Header";
 import "../assets/styles/components/Login.scss";
 import googleIcon from "../assets/static/google-icon.png";
 import twitterIcon from "../assets/static/twitter-icon.png";
@@ -27,6 +28,7 @@ const Login = (props) => {
 
   return (
     <React.Fragment>
+      <Header isLogin />
       <section className="login">
         <section className="login__container">
           <h2>Iniciar sesión</h2>
@@ -63,8 +65,7 @@ const Login = (props) => {
             </div>
           </section>
           <p className="login__container--register">
-            ¿No tienes ninguna cuenta?
-            <Link to="/register">Regístrate</Link>
+            ¿No tienes ninguna cuenta? <Link to="/register">Regístrate</Link>
           </p>
         </section>
       </section>

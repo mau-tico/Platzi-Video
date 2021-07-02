@@ -11,6 +11,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
+    publicPath: "/",
   },
 
   //Resolver extenciones del Proyecto
@@ -18,7 +19,7 @@ module.exports = {
     extensions: [".js", ".jsx"],
   },
 
-  //REglas para Proyecto
+  //Reglas para Proyecto
   module: {
     rules: [
       {
